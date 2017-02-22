@@ -7,11 +7,32 @@ import org.opencv.core.Mat;
  */
 public class Layer {
 
-    short x;        //表示するX座標
-    short y;        //表示するY座標
-    short width;    //レイヤーの幅
-    short height;   //レイヤーの高さ
+    Short x;        //表示するX座標
+    Short y;        //表示するY座標
+    Short width;    //レイヤーの幅
+    Short height;   //レイヤーの高さ
     Mat buffer;     //レイヤーの画像
+
+    /*
+    * コンストラクタとか
+     */
+    public Layer(Short x, Short y, Short width, Short height){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    public Layer(Short x, Short y, Short width, Short height, Mat img){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        img.copyTo(this.buffer);
+    }
+
+    public Layer(){
+    }
 
     /*
     * getter/setterの定義
