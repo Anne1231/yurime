@@ -1,5 +1,7 @@
 package graphic;
 
+import org.opencv.core.Mat;
+
 /**
  * Created by Anne on 2017/02/22.
  */
@@ -9,6 +11,7 @@ public class Layer {
     short y;        //表示するY座標
     short width;    //レイヤーの幅
     short height;   //レイヤーの高さ
+    Mat buffer;     //レイヤーの画像
 
     /*
     * getter/setterの定義
