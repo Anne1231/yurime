@@ -1,5 +1,7 @@
 package graphic;
 
+import core.Convert;
+import javafx.scene.image.Image;
 import org.opencv.core.Mat;
 
 /**
@@ -29,6 +31,14 @@ public class Layer {
         this.width = width;
         this.height = height;
         img.copyTo(this.buffer);
+    }
+
+    public Layer(Short x, Short y, Short width, Short height, Image image){
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.buffer = Convert.Image2Mat(image, -1);
     }
 
     public Layer(){

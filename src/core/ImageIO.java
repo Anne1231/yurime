@@ -38,6 +38,14 @@ public class ImageIO {
      */
     public static Mat SelectAndOpenImage(Stage stage){
         String path = GetImagePath(stage);
+        return OpenImageWithPath(path);
+    }
+
+    /*
+    * OpenImageWithPath関数
+    * 引数としてパスを受け取り、その画像を開く関数
+     */
+    public static Mat OpenImageWithPath(String path){
         if(!path.isEmpty()){
             Mat img = Imgcodecs.imread(path);
             return img;

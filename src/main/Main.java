@@ -9,6 +9,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.opencv.core.Core;
 
@@ -27,6 +28,31 @@ public class Main extends Application {
 
         InitWindow(stage);
 
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //メニューバーの設定とか
+
+        MenuBar menu = new MenuBar();
+        Menu help = new Menu("Help");
+        MenuItem about = new MenuItem("About");
+        help.getItems().addAll(about);
+        Menu file = new Menu("File");
+        MenuItem open = new MenuItem("Open");
+        MenuItem create = new MenuItem("Create");
+        MenuItem save = new MenuItem("Save");
+        MenuItem quit = new MenuItem("Quit");
+        quit.setOnAction(event1 ->
+                System.exit(0)
+        );
+
+        file.getItems().addAll(open, create, save, quit);
+        menu.getMenus().addAll(file, help);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        //GUIの構造を定義
+
         VBox root = new VBox();
         HBox MainBox = new HBox();
         HBox SideToolBox = new HBox();
@@ -36,22 +62,6 @@ public class Main extends Application {
         HBox preview = new HBox();
         HBox materials = new HBox();
         VBox timeline = new VBox();
-
-        MenuBar menu = new MenuBar();
-        Menu help = new Menu("Help");
-        MenuItem about = new MenuItem("About");
-        help.getItems().addAll(about);
-        Menu file = new Menu("File");
-        MenuItem open = new MenuItem("Open");
-        MenuItem create = new MenuItem("Create");
-        MenuItem savem = new MenuItem("Save");
-        MenuItem quit = new MenuItem("Quit");
-        quit.setOnAction(event1 ->
-                System.exit(0)
-        );
-
-        file.getItems().addAll(open, create, savem, quit);
-        menu.getMenus().addAll(file, help);
 
         UpperRight.setAlignment(Pos.CENTER);
         UpperRight.setPadding(new Insets(5, 5, 5, 5));
@@ -67,6 +77,8 @@ public class Main extends Application {
         MainBox.setPadding(new Insets(5, 5, 5, 5));
         MainBox.setSpacing(5.0);
         MainBox.getChildren().addAll(SideToolBox, RightObjectsBox);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////
 
         root.getChildren().addAll(menu, MainBox);
 
@@ -86,4 +98,5 @@ public class Main extends Application {
         stage.setWidth(Values.WINDOW_WIDTH);
         stage.setHeight(Values.WINDOW_HEIGHT);
     }
+
 }
