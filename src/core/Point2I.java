@@ -43,7 +43,24 @@ public class Point2I {
         this.y = y;
     }
 
+    /*
+    * メンバの値を操作するメソッド
+     */
+
+    //X値
+    public void addX(int x){
+        this.x += x;
+    }
+
+    //Y値
+    public void addY(int y){
+        this.y += y;
+    }
     public Point2I clone(){
         return new Point2I(this.x, this.y);
+    }
+
+    public double Distance(Point2I p){
+        return Math.sqrt(Math.pow(this.x - p.getX(), 2) + Math.sqrt(this.y - p.getY()));
     }
 }
